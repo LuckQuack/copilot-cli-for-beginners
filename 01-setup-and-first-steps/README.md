@@ -407,6 +407,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/env` | Show loaded environment details — what instructions, MCP servers, skills, agents, and plugins are active |
 | `/init` | Initialize Copilot instructions for your repository |
 | `/mcp` | Manage MCP server configuration |
+| `/settings` | Open an interactive dialog to browse and edit all user settings in one place |
 | `/skills` | Manage skills for enhanced capabilities |
 
 > 💡 Agents are covered in [Chapter 04](../04-agents-custom-instructions/README.md), skills are covered in [Chapter 05](../05-skills/README.md), and MCP servers are covered in [Chapter 06](../06-mcp-servers/README.md).
@@ -471,6 +472,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 
 | Command | What It Does |
 |---------|--------------|
+| `/app` | Open the GitHub app (or browser fallback) directly from the CLI |
 | `/changelog` | Display changelog for CLI versions |
 | `/feedback` | Submit feedback to GitHub |
 | `/help` | Show all available commands |
