@@ -60,6 +60,13 @@ a{color:var(--teal)}
 .nav-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .nav-home{background:#fff;border:2px solid var(--ink);color:var(--ink)}
 .nav-btn.disabled{background:#cfc8b8;color:#fff;box-shadow:none;cursor:default}
+.nav-lbl-short{display:none}
+@media(max-width:540px){
+  .nav{gap:8px;padding:14px 10px}
+  .nav-btn,.nav-home{padding:11px 18px;font-size:.98rem}
+  .nav-lbl-full{display:none}
+  .nav-lbl-short{display:inline}
+}
 /* comic strip */
 .strip{max-width:920px;margin:0 auto;padding:8px 18px 40px;
   display:flex;flex-direction:column;gap:34px}
@@ -121,4 +128,10 @@ body.home{display:flex;flex-direction:column;min-height:100vh}
 .cs-options b{font-size:1.08rem}
 .cs-options a span,.cs-soon span{color:#6c6657;font-weight:500;font-size:.95rem}
 .cs-soon{opacity:.55;cursor:default}
-@media(max-width:560px){.badge{width:38px;height:38px;font-size:1.05rem;top:-12px;left:-12px}}
+@media(max-width:600px){
+  .strip{padding:4px 8px 28px;gap:20px}
+  .cell{padding:8px;border-radius:16px}
+  .cap{font-size:.98rem;padding-left:28px;margin:2px 4px 8px}
+  .home-main{padding:14px 8px 32px}
+  .badge{width:38px;height:38px;font-size:1.05rem;top:-12px;left:-8px}
+}

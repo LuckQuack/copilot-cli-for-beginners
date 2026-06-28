@@ -15,14 +15,14 @@ home:
     caption: Meet Pip and Professor Quill - pick a chapter below to get started!
     bubbles:
     - lines:
-      - Hi, I'm Pip! Let's get setup
-      - to code together!
-      w: 720
+      - Hi, I'm Pip! Ready to learn
+      - about GitHub Copilot CLI!
+      w: 520
       tx: 540
       ty: 250
     - lines:
-      - And I'm Professor Quill. I explain
-      - the why behind each step.
+      - Greetings! I'm Professor Quill. 
+      - I explain the why behind each step.
       w: 640
       tx: 1140
       ty: 560
@@ -156,7 +156,7 @@ chapters:
       tx: 700
       ty: 330
     terminal:
-    - '> Review @samples/book-app-project/book_app.py for code quality issues'
+    - '> Review @samples/book-app-project/book_app.py for code quality'
   - img: ch01-modes.png
     alt: Professor Quill points at three icons - a map, a waiter, and a drive-through - while Pip thinks.
     caption: 'Three modes: GPS route, waiter chat, or drive-through'
@@ -168,6 +168,9 @@ chapters:
       - a waiter chat.
       - Programmatic =
       - a drive-through.
+      auto: false
+      x: 500
+      y: 450
       w: 358
       tx: 470
       ty: 610
@@ -175,7 +178,7 @@ chapters:
       - I'll pick the one
       - that fits the job.
       w: 400
-      tx: 1190
+      tx: 1250
       ty: 195
     terminal:
     - 'copilot              # Interactive - explore and iterate'
@@ -333,7 +336,7 @@ chapters:
       tx: 480
       ty: 200
     terminal:
-    - '> Why is this layout broken? @screenshot.png  # or copy/paste the image'
+    - '> Why is this layout broken? @screenshot.png'
 - badge: Chapter 03
   title: Development Workflows
   subtitle: Review, refactor, debug, test, and ship code with everyday Copilot workflows.
