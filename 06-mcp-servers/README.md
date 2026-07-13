@@ -288,8 +288,6 @@ This adds the server and its associated agent skills automatically. The skills i
 - **microsoft-code-reference**: API lookups, code samples, and troubleshooting
 - **microsoft-skill-creator**: A meta-skill for generating custom skills about Microsoft technologies
 
-> 💡 **Managing installed plugins**: After installing plugins, use `/plugins` to open the plugins dashboard. From there you can view, enable, disable, or remove any installed plugin — no need to edit config files manually.
-
 **Usage:**
 ```bash
 copilot

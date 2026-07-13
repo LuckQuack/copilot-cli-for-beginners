@@ -410,7 +410,6 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/env` | Show loaded environment details — what instructions, MCP servers, skills, agents, and plugins are active |
 | `/init` | Initialize Copilot instructions for your repository |
 | `/mcp` | Manage MCP server configuration |
-| `/plugins` | Open the plugins dashboard to view and manage installed plugins |
 | `/settings` | Open an interactive dialog to browse and edit all user settings in one place |
 | `/skills` | Manage skills for enhanced capabilities |
 
