@@ -145,16 +145,17 @@ After trusting the folder, you can sign in with your GitHub account.
 
 **What happens next (local terminal):**
 
-1. Your browser opens automatically to GitHub's authorization page. Sign in to GitHub if you haven't already.
-2. Select "Authorize" to grant GitHub Copilot CLI access.
-3. Return to your terminal — you're now signed in!
+1. Choose to sign into your GitHub.com account or an enterprise account.
+2. Select `Sign in with your browser (recommended)`
+3. Your browser opens automatically to GitHub's authorization page. Sign in to GitHub if you haven't already.
+4. Select "Authorize" to grant GitHub Copilot CLI access.
+5. Return to your terminal — you're now signed in!
 
-> 💡 **Remote or headless terminals**: If you're on a remote server or a terminal without a browser (such as SSH), Copilot CLI falls back to the **device code flow** instead. You'll see a one-time code (like `ABCD-1234`) — visit [github.com/login/device](https://github.com/login/device) in a browser and enter the code to complete sign-in.
-
-> 💡 **Force a specific flow**: Use `--web-flow` to always use the browser popup, or `--device-code` to always use the code-based flow. You can also pick interactively with `/login`.
-
-<img src="assets/auth-device-flow.png" alt="Device Authorization Flow - showing the 5-step process from terminal login to signed-in confirmation" width="800"/>
-
+> 💡 **Remote or headless terminals**: If you're on a remote server or a terminal without a browser (such as SSH), Copilot CLI falls back to the **device code flow** instead. You'll see a one-time code like `ABCD-1234`. Visit [github.com/login/device](https://github.com/login/device) in a browser on another machine and enter the code to complete sign-in. To force a specific flow, use `copilot login --web-flow` to use the browser popup or `copilot login --device-code` to use the code-based flow. You can also pick interactively with `/login`.
+> 
+> <img src="assets/auth-device-flow.png" alt="Device Authorization Flow - showing the 5-step process from terminal login to signed-in confirmation" width="800"/>
+>
+ 
 *The browser-based flow: your browser opens automatically and you authorize in one click. On remote/headless terminals, a device code is shown instead.*
 
 **Tip**: The sign-in persists across sessions. You only need to do this once unless your token expires or you explicitly sign out.
