@@ -270,7 +270,7 @@ copilot
 
 ### Browser doesn't open automatically
 
-On remote or headless terminals, the device code flow is used instead. Your terminal will display a one-time code — manually visit [github.com/login/device](https://github.com/login/device) and enter it. On a local terminal, try running `/login --web-flow` to force the browser popup.
+On remote or headless terminals, the device code flow is used instead. Your terminal will display a one-time code. Visit [github.com/login/device](https://github.com/login/device) and enter the code, then authorize access.
 
 ### Token expired
 
