@@ -460,7 +460,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/new` | Ends the current session (saving it to history for search/resume) and starts a fresh conversation. |
 | `/resume` | Switch to a different session (optionally specify session ID or name) |
 | `/rename` | Rename the current session (omit the name to auto-generate one) |
-| `/rewind` | Open a timeline picker to roll back to any earlier point in the conversation |
+| `/rewind` | Open a timeline picker to roll back to any earlier point in the conversation; optionally restores the files Copilot changed (works without git) |
 | `/usage` | Display session usage metrics and statistics, including quota progress bars |
 | `/session` | Show session info and workspace summary; use `/session delete`, `/session delete <id>`, or `/session delete-all` to remove sessions |
 | `/share` | Export session as a markdown file, GitHub gist, or self-contained HTML file |
