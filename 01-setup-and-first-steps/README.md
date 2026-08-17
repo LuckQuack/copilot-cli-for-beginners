@@ -329,7 +329,7 @@ Proceed with implementation? [Y/n]
 
 > 💡 **Want something more complex?** Try: `/plan Add search and filter capabilities to the book app`. Plan mode scales from simple features to full applications.
 
-> 📚 **Autopilot mode**: You may have noticed Shift+Tab cycles through a third mode called **Autopilot**. In autopilot mode, Copilot works through an entire plan without waiting for your input after each step — like handing a task to a colleague and saying "let me know when you're finished." The typical workflow is plan → accept → autopilot, which means you need to be good at writing plans first. You can also launch directly into autopilot with `copilot --autopilot`. Get comfortable with Interactive and Plan modes first, then see the [official docs](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot) when you're ready.
+> 📚 **Autopilot mode**: You may have noticed Shift+Tab cycles through a third mode called **Autopilot**. In autopilot mode, Copilot works through an entire plan without waiting for your input after each step — like handing a task to a colleague and saying "let me know when you're finished." The typical workflow is plan → accept → autopilot, which means you need to be good at writing plans first. You can also launch directly into autopilot with `copilot --autopilot`, or set a goal inline with `/autopilot <objective>` (for example, `/autopilot Add a search command to the book app`). You can also combine planning and autopilot by running `copilot --plan --mode autopilot`. Copilot will create a plan first and then implement it automatically without pausing for approval. Get comfortable with Interactive and Plan modes first, then see the [official docs](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot) when you're ready.
 
 ---
 
@@ -380,18 +380,21 @@ These commands are great to learn initially as you're getting started with Copil
 |---------|--------------|-------------|
 | `/ask` | Ask a quick question without it affecting your conversation history | When you want a quick answer without derailing your current task |
 | `/clear` | Clear conversation and start fresh | When switching topics |
+| `/config` | View or set persistent defaults (e.g., default model) | When you want a setting to apply to all future sessions |
 | `/help` | Show all available commands | When you forget a command |
-| `/model` | Show or switch AI model | When you want to change the AI model |
+| `/model` | Show or switch AI model for the current session | When you want to change the AI model |
 | `/plan` | Plan your work out before coding | For more complex features |
 | `/refine` | Rewrite a rough, stream-of-consciousness prompt into a clear, focused one | When your prompt feels messy and you want better results |
 | `/research` | Deep research using GitHub and web sources | When you need to investigate a topic before coding |
 | `/exit` | End the session | When you're done |
 
-> 💡 **`/ask` vs regular chat**: Normally every message you send becomes part of the ongoing conversation and affects future responses. `/ask` is an "off the record" shortcut — perfect for quick one-off questions like `/ask What does YAML mean?` without polluting your session context.
+> 💡 **`/ask` vs regular chat**: Normally every message you send becomes part of the ongoing conversation and affects future responses. `/ask` is an "off the record" shortcut. It's perfect for quick one-off questions like `/ask What does YAML mean?` without polluting your session context.
 
 > 💡 **`/refine` for better prompts**: Not sure if your prompt is clear enough? Type it out as it comes to mind, then run `/refine` to let Copilot rewrite it into a precise, well-structured prompt before sending. This is especially useful when you're new to AI tools and still learning how to write effective prompts.
 
 > 💡 **Tab-completion**: When typing a slash command, press **Tab** to auto-complete the command name or cycle through available subcommands and arguments. This is especially handy when you can't remember the exact name of a command.
+
+> 💡 **Queue prompts while Copilot is busy**: If Copilot is in the middle of a task and you think of the next thing you want it to do, just type it and press **Enter**. Copilot will run it automatically when the current task finishes, so you don't have to wait around.
 
 That's it for getting started! As you become comfortable, you can explore additional commands.
 
@@ -420,9 +423,10 @@ That's it for getting started! As you become comfortable, you can explore additi
 
 | Command | What It Does |
 |---------|--------------|
+| `/config` | View or set persistent defaults (e.g., `/config model` to set your default model for all future sessions) |
 | `/delegate` | Hand off task to GitHub Copilot cloud agent |
 | `/fleet` | Split a complex task into parallel subtasks for faster completion |
-| `/model` | Show or switch AI model |
+| `/model` | Show or switch AI model for the current session only |
 | `/tasks` | View background subagents and detached shell sessions |
 
 ### Code
@@ -467,6 +471,8 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/every <interval> <prompt>` | Schedule a prompt to run on a recurring interval (e.g., `/every 1h summarize new commits`). Use natural language for the interval. `/loop` is an alias for `/every`. |
 | `/after <time> <prompt>` | Schedule a prompt to run once after a delay (e.g., `/after 30m run tests`). Use natural language for the time. |
 
+> 💡 **Sessions tab**: The interactive Copilot CLI UI includes a **Sessions tab** at the top of the window. You can use it to view and switch between multiple sessions running at the same time. Press `n` in the Sessions tab to start a new session without closing the one you're in.
+
 ### Display
 
 | Command | What It Does |
@@ -509,11 +515,15 @@ copilot
 # Shows available models and lets you pick one. Select Sonnet 4.5.
 ```
 
+> 💡 **Session vs. persistent model**: The `/model` command changes the model for the **current session only**. When you start a new session, Copilot will use the default again. To set a permanent default model for all future sessions, use `/config model` instead.
+
 > 💡 **Tip**: Some models cost more "premium requests" than others. Models marked **1x** (like Claude Sonnet 4.5) are a great default. They're capable and efficient. Higher-multiplier models use your premium request quota faster, so save those for when you really need them.
 
 > 💡 **Not sure which model to pick?** Select **`Auto`** from the model picker to let Copilot automatically choose the best available model for each session. This is a great default if you're just getting started and don't want to think about model selection.
 
 > 💡 **Model family shortcuts**: You can also type a short family alias — like `opus`, `sonnet`, `haiku`, `gpt`, or `gemini` — directly in the `/model` picker instead of scrolling through the full list. Copilot will pick the best available model in that family for you.
+
+> 💡 **Model picker navigation**: The model picker now groups models into sections — **Recent**, **Recommended**, and **New** — so you can quickly find the model you used last or try what's newly available. Use **Shift+Tab** inside the picker to switch between grouping views.
 
 </details>
 
@@ -678,7 +688,7 @@ The examples used `/plan` for a search feature and `-p` for batch reviews. Now t
 
 **"Model not available"** - Your subscription may not include all models. Use `/model` to see what's available.
 
-**"Context too long"** - Your conversation has used the full context window. Use `/clear` to reset, or start a new session.
+**"Context too long"** - Your conversation has used the full context window. Use `/new` to start a new session.
 
 **"Rate limit exceeded"** - Wait a few minutes and try again. Consider using programmatic mode for batch operations with delays.
 
@@ -693,7 +703,7 @@ The examples used `/plan` for a search feature and `-p` for batch reviews. Now t
 1. **Interactive mode** is for exploration and iteration - context carries forward. It's like having a conversation with someone who remembers what you've said up to that point.
 2. **Plan mode** is normally for more involved tasks. Review before implementation.
 3. **Programmatic mode** is for automation. No interaction needed.
-4. **Essential commands** (`/ask`, `/help`, `/clear`, `/plan`, `/research`, `/model`, `/exit`) cover most daily use.
+4. **Essential commands** (`/ask`, `/help`, `/clear`, `/new`, `/plan`, `/research`, `/model`, `/exit`) cover most daily use.
 
 > 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
 
