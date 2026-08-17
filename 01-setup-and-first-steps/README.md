@@ -471,7 +471,7 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/every <interval> <prompt>` | Schedule a prompt to run on a recurring interval (e.g., `/every 1h summarize new commits`). Use natural language for the interval. `/loop` is an alias for `/every`. |
 | `/after <time> <prompt>` | Schedule a prompt to run once after a delay (e.g., `/after 30m run tests`). Use natural language for the time. |
 
-> 💡 **Sessions tab**: The interactive Copilot CLI UI includes a **Sessions tab** at the top of the window. You can use it to view and switch between multiple sessions running at the same time — handy if you're working on two tasks at once (e.g., one session for writing a feature and another for debugging). Press `n` in the Sessions tab to start a new session without closing the one you're in.
+> 💡 **Sessions tab**: The interactive Copilot CLI UI includes a **Sessions tab** at the top of the window. You can use it to view and switch between multiple sessions running at the same time. Press `n` in the Sessions tab to start a new session without closing the one you're in.
 
 ### Display
 
