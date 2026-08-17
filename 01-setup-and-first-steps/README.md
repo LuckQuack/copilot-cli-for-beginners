@@ -394,7 +394,7 @@ These commands are great to learn initially as you're getting started with Copil
 
 > 💡 **Tab-completion**: When typing a slash command, press **Tab** to auto-complete the command name or cycle through available subcommands and arguments. This is especially handy when you can't remember the exact name of a command.
 
-> 💡 **Queue prompts while Copilot is busy**: If Copilot is in the middle of a task and you think of the next thing you want it to do, just type it and press **Enter** — it gets added to a queue. Copilot will run it automatically when the current task finishes, so you don't have to wait around. This works for regular prompts, shell commands (`!`), and most slash commands.
+> 💡 **Queue prompts while Copilot is busy**: If Copilot is in the middle of a task and you think of the next thing you want it to do, just type it and press **Enter**. Copilot will run it automatically when the current task finishes, so you don't have to wait around. This works for regular prompts, shell commands (`!`), and most slash commands.
 
 That's it for getting started! As you become comfortable, you can explore additional commands.
 
