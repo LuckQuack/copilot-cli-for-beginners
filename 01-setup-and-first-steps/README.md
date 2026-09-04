@@ -412,10 +412,12 @@ That's it for getting started! As you become comfortable, you can explore additi
 | `/agent` | Browse and select from available agents |
 | `/env` | Show loaded environment details — what instructions, MCP servers, skills, agents, and plugins are active |
 | `/init` | Initialize Copilot instructions for your repository |
-| `/mcp` | Manage MCP server configuration |
-| `/plugins` | Enable or disable plugins, instructions, agents, LSP servers, and hooks without restarting the session |
+| `/instructions` | View and manage all loaded instruction files for the current session |
+| `/mcp` | Open the plugins dashboard (focused on MCP servers); use `/mcp config` for the dedicated MCP setup wizard |
+| `/plugin` | Open the plugins dashboard to browse, install, enable, and update plugins |
 | `/settings` | Open an interactive dialog to browse and edit all user settings in one place |
-| `/skills` | Manage skills for enhanced capabilities |
+| `/skills` | Open the plugins dashboard (focused on skills) to discover and manage skills |
+| `/subagents` | View and manage subagents running in the current session |
 
 > 💡 Agents are covered in [Chapter 04](../04-agents-custom-instructions/README.md), skills are covered in [Chapter 05](../05-skills/README.md), and MCP servers are covered in [Chapter 06](../06-mcp-servers/README.md).
 
