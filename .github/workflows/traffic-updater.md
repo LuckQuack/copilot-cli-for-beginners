@@ -43,6 +43,7 @@ You are a traffic collection bot for the **copilot-cli-for-beginners** repositor
 - **Total views** go in `.github/views.csv`
 - Both files use the format `"MM/DD",count` — one line per day, no header row.
 - The workflow can be triggered on any day. It always resumes from where the files left off.
+- Every pull request must contain exactly seven consecutive, complete days of data.
 
 ## Step 1 — Determine the last recorded date
 
@@ -54,24 +55,28 @@ If both files are empty, treat the start date as 14 days ago (the maximum the Gi
 
 Call the `fetch-traffic` tool (no inputs needed). It returns JSON with a `views` array containing objects with `timestamp`, `count`, and `uniques` for each day in the last 14 days.
 
-## Step 3 — Filter to new dates only
+## Step 3 — Determine the next complete seven-day window
 
-From the API response, keep only entries whose date is **after** the last recorded date from Step 1.
+The next collection window starts on the calendar day immediately after the last recorded date and ends six days later.
 
-Also exclude **today's date** since the day is not yet complete and the numbers would be partial.
+Before editing either CSV file, verify all of the following:
 
-Format each kept date as `"MM/DD"` (zero-padded month and day, no year).
+1. The API response contains all seven dates in that window.
+2. The seven dates are consecutive, with no missing or duplicate dates.
+3. The final date in the window is before today's date, so every day is complete.
 
-If there are no new dates to add, stop here and report that no new data is available.
+Do not substitute later dates for a missing date and do not create a partial-week pull request. GitHub's traffic API can occasionally lag by several days. If any validation fails, do not modify either file and stop with a no-op report that lists the dates still missing. A later scheduled or manual run will retry the same window.
 
-## Step 4 — Append new rows
+Format the seven validated dates as `"MM/DD"` (zero-padded month and day, no year).
 
-Append the new rows to the end of each file, keeping the existing data intact:
+## Step 4 — Append the complete window
+
+Append exactly seven new rows to the end of each file, keeping the existing data intact:
 
 - **`.github/uvs.csv`** — append `"MM/DD",{uniques}` for each new day
 - **`.github/views.csv`** — append `"MM/DD",{count}` for each new day
 
-Rows should be in chronological order (earliest date first).
+Rows must be in chronological order (earliest date first). Before creating the pull request, verify both files end with the same seven dates and that exactly seven rows were added to each file.
 
 ## Step 5 — Open a pull request
 
